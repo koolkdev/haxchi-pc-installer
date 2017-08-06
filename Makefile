@@ -3,9 +3,9 @@ LIB=-Lwfslib/
 INC=-Iwfslib/
 CXXFLAGS=$(INC) -c -Wall -Werror -std=c++14
 LDFLAGS=$(LIB) -lwfs -lboost_system -lboost_filesystem -lboost_program_options -lcryptopp -lstdc++
-SOURCES=main.cpp
+SOURCES=main.cpp games_list.cpp
 OBJECTS=$(SOURCES:.cpp=.o)
-EXECUTABLE=wfs-file-injector
+EXECUTABLE=haxchi-pc-installer
 
 all: $(SOURCES) $(EXECUTABLE)
 
@@ -13,7 +13,7 @@ $(EXECUTABLE): $(OBJECTS) wfslib/libwfs.a
 	$(CXX) $(OBJECTS) $(LDFLAGS) -o $@
 
 wfslib/libwfs.a:
-    $(MAKE) -C wfslib/wfslib
+	$(MAKE) -C wfslib/wfslib
 
 .cpp.o:
 	$(CXX) $(CXXFLAGS) $< -o $@
@@ -21,4 +21,4 @@ wfslib/libwfs.a:
 .PHONY: clean
 clean:
 	rm -f $(OBJECTS) $(EXECUTABLE)
-    $(MAKE) -C wfslib/wfslib clean
+	$(MAKE) -C wfslib/wfslib clean

@@ -1,6 +1,6 @@
 #include "games_list.h"
 
-static const std::vector<GameInfo> GamesList = {
+const std::vector<GameInfo> GamesList = {
 	{ 0x10179A00, "Kawashima: Motto Nou wo Kitaeru Otona no DS Training [JPN]", "brainage.zip" },
 	{ 0x10179B00, "Brain Age: Train Your Brain in Minutes a Day! [USA]", "brainage.zip" },
 	{ 0x10179C00, "Dr. Kawashima's Brain Training [PAL]", "brainage.zip" },
