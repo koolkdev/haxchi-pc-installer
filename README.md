@@ -2,7 +2,7 @@
 ## Usage
 ### Preparing the USB
 1. It is recommended to use a clean USB and format it for this process. The installer is expermintal and may corrupt the file system.
-2. Buy and install one of the supported DS VS games, and move it to the usb.
+2. Buy and install one of the supported DS VC games, and move it to the usb.
 ### Installing
 Choose one of the following options:
 #### Option 1: Direct install to the USB (faster but more risky)
@@ -30,7 +30,7 @@ Choose one of the following options:
 
 ### Finishing
 Now just connect the USB back to the Wii U. If you run the game HBL should be opened instead.  
-Now with HBL access it is recommended to reinstall haxchi again with the regular Wii U installer.
+Now with HBL access it is recommended to move the game back to the NAND and reinstall haxchi again with the regular Wii U installer.
 
 
 ## Build
