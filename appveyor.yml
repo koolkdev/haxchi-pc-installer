@@ -1,0 +1,45 @@
+# Specify version format
+version: 0.2.{build}
+
+environment:
+  matrix:
+    - platform: x86
+      PLATFORM_DIR: Win32
+      PLATFORM_OUT: 32bit
+    - platform: x64
+      PLATFORM_DIR: x64
+      PLATFORM_OUT: 64bit
+
+os:
+  - Visual Studio 2015
+
+shallow_clone: true
+
+# build Configuration, i.e. Debug, Release, etc.
+configuration:
+  - Release
+
+before_build:
+  - nuget restore
+
+after_build:
+  - 7z a haxchi-pc-installer-v%APPVEYOR_BUILD_VERSION%-windows-%PLATFORM_OUT%.zip %APPVEYOR_BUILD_FOLDER%\%PLATFORM_DIR%\Release\haxchi-pc-installer.exe
+
+artifacts:
+  - path: haxchi-pc-installer-v%APPVEYOR_BUILD_VERSION%-windows-%PLATFORM_OUT%.zip
+
+# cache nuget directory
+#cache:
+#  - packages -> **\packages.config
+
+deploy:
+  description: Haxchi PC Installer v$(appveyor_build_version)
+  provider: GitHub
+  auth_token:
+    secure: zgIKVcub8f5Hp19YGIi0xwIaiLijYqzwF50SFD+83gpeLmZLHGZLonGEOlJAt6sc
+  artifact: /.*\.zip/
+  draft: false
+  prerelease: false
+  on:
+    branch: master
+    appveyor_repo_tag: true
