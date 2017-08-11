@@ -1,4 +1,3 @@
 [submodule "wfslib"]
 	path = wfslib
 	url = https://github.com/koolkdev/wfslib
-	branch = :v0.3

@@ -86,8 +86,7 @@ int main(int argc, char *argv[]) {
 		}
 
 		auto device = std::make_shared<FileDevice>(vm["image"].as<std::string>(), 9, false);
-		Wfs::DetectSectorsCount(device, key);
-		Wfs::DetectSectorSize(device, key);
+		Wfs::DetectDeviceSectorSizeAndCount(device, key);
 		Wfs wfs(device, key);
 		std::vector<GameInfo> detected_games;
 		for (auto game : GamesList) {
