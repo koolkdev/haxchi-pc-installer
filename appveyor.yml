@@ -23,6 +23,9 @@ configuration:
 before_build:
   - nuget restore
 
+build:
+  project: haxchi-pc-installer.sln
+
 after_build:
   - 7z a haxchi-pc-installer-v%APPVEYOR_BUILD_VERSION%-windows-%PLATFORM_OUT%.zip %APPVEYOR_BUILD_FOLDER%\%PLATFORM_DIR%\Release\haxchi-pc-installer.exe
 
